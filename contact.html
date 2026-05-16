@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — ASYT Associates</title>
+<meta name="description" content="Contactez ASYT Associates pour échanger sur votre projet d'IA souveraine. Premier échange gratuit et sans engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="asyt-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASYT Associates — L'IA souveraine pour vos données sensibles">
+<meta property="og:description" content="ASYT Associates conçoit des intelligences artificielles sécurisées et 100% locales pour les organisations qui manipulent des données sensibles.">
+<meta property="og:image" content="asyt-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="asyt-logo.png">
+</head>
+<body>
+<canvas id="data-canvas" aria-hidden="true"></canvas>
+<!-- Preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="launch-scene">
+    <div class="launch-platform"></div>
+    <div class="launch-shockwave"></div>
+    <div class="launch-trail"></div>
+    <div class="launch-craft">
+      <svg viewBox="0 0 64 88" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Corps principal du vaisseau -->
+        <path d="M32 4 L48 44 L48 72 L32 80 L16 72 L16 44 Z" fill="#1F1812"/>
+        <!-- Nez chromé -->
+        <path d="M32 4 L40 28 L32 24 L24 28 Z" fill="#D3C4AC"/>
+        <!-- Hublot -->
+        <circle cx="32" cy="42" r="6" fill="#FDF7F0"/>
+        <circle cx="32" cy="42" r="3" fill="#D3C4AC"/>
+        <!-- Ailettes latérales -->
+        <path d="M16 60 L8 76 L16 72 Z" fill="#1F1812"/>
+        <path d="M48 60 L56 76 L48 72 Z" fill="#1F1812"/>
+        <!-- Détail central -->
+        <rect x="30" y="56" width="4" height="14" fill="#D3C4AC" opacity="0.5"/>
+        <!-- Tuyère -->
+        <path d="M22 72 L28 80 L36 80 L42 72 Z" fill="#4A3F33"/>
+      </svg>
+    </div>
+  </div>
+  <div class="preloader-text">
+    <div class="brand">
+      <span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1F1812; margin-right:8px; transform:translateY(-1px);"></span>ASYT <span class="italic">Associates</span>
+    </div>
+    <div class="tagline">Initialisation…</div>
+  </div>
+  <div class="preloader-progress"></div>
+</div>
+
+
+
+<script>
+(function() {
+  var preloader = document.getElementById('preloader');
+  if (!preloader) return;
+  
+  // Détecter si c'est la première visite ou une navigation interne
+  var isFirstVisit = !sessionStorage.getItem('asyt-visited');
+  var totalDuration = isFirstVisit ? 3800 : 1800;
+  
+  // Marquer comme visité
+  sessionStorage.setItem('asyt-visited', '1');
+  
+  // Appliquer une animation accélérée si ce n'est pas la première visite
+  if (!isFirstVisit) {
+    preloader.classList.add('preloader-fast');
+  }
+  
+  function hidePreloader() {
+    preloader.classList.add('is-hidden');
+    setTimeout(function() { 
+      if (preloader.parentNode) preloader.remove(); 
+    }, 800);
+    document.body.style.overflow = '';
+  }
+  
+  document.body.style.overflow = 'hidden';
+  
+  if (document.readyState === 'complete') {
+    setTimeout(hidePreloader, totalDuration);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(hidePreloader, totalDuration);
+    });
+  }
+  // Sécurité : retirer après 6s max
+  setTimeout(hidePreloader, 6000);
+})();
+</script>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="mark"></span>ASYT <span class="associates">Associates</span>
+    </a>
+    <nav class="nav" id="primary-nav">
+      <a href="index.html">Accueil</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+      <div class="lang-switch">
+        <a href="contact.html" class="lang active">FR</a>
+        <span class="lang-sep">/</span>
+        <a href="contact-en.html" class="lang">EN</a>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.getElementById('primary-nav').classList.toggle('open');">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow rise rise-1">Contact</span>
+      <h1 class="rise rise-2">Le premier échange <span class="italic">est toujours <span class="highlight">gratuit.</span></span></h1>
+      <p class="lead rise rise-3">Présentez-nous brièvement votre contexte, votre secteur et l'enjeu que vous cherchez à adresser. Nous vous répondons sous 48 heures ouvrées avec une première analyse, ou directement avec un créneau.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="padding-top: 1rem;">
+    <div class="container">
+      <div class="contact-grid">
+
+        <aside class="contact-info">
+          <div class="item">
+            <span class="eyebrow">Direct</span>
+            <h4 style="margin-top: 0.8rem;">Email</h4>
+            <a href="mailto:asyt.associates@outlook.com">asyt.associates@outlook.com</a>
+          </div>
+          <div class="item">
+            <span class="eyebrow">Réseaux</span>
+            <h4 style="margin-top: 0.8rem;">LinkedIn</h4>
+            <a href="https://fr.linkedin.com/company/asyt-associates" target="_blank" rel="noopener">ASYT Associates</a>
+          </div>
+          <div class="item">
+            <span class="eyebrow">Bureaux</span>
+            <h4 style="margin-top: 0.8rem;">Paris</h4>
+            <p style="font-size: 0.95rem;">Sur rendez-vous uniquement.<br>Île-de-France, France.</p>
+          </div>
+          <div class="item">
+            <span class="eyebrow">Délais</span>
+            <h4 style="margin-top: 0.8rem;">Réactivité</h4>
+            <p style="font-size: 0.95rem;">Réponse sous 48 heures ouvrées. Premier rendez-vous proposé sous 7 jours en moyenne.</p>
+          </div>
+        </aside>
+
+        <form class="contact-form" action="https://formspree.io/f/mykolpgj" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message depuis le site ASYT Associates">
+          <input type="hidden" name="_language" value="fr">
+          <div class="form-row">
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email professionnel</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="entreprise">Entreprise</label>
+              <input type="text" id="entreprise" name="entreprise" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="secteur">Secteur d'activité</label>
+            <select id="secteur" name="secteur" required>
+              <option value="">— Sélectionner —</option>
+              <option>Cabinet d'avocats / juridique</option>
+              <option>Santé / établissement médical</option>
+              <option>Finance / assurance</option>
+              <option>Industrie / R&D</option>
+              <option>Secteur public / défense</option>
+              <option>Entrepreneuriat / dirigeant</option>
+              <option>Autre</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="sujet">Sujet de la demande</label>
+            <select id="sujet" name="sujet" required>
+              <option value="">— Sélectionner —</option>
+              <option>Conseil & stratégie IA</option>
+              <option>Déploiement IA on-premise</option>
+              <option>Audit sécurité & conformité</option>
+              <option>Formation des équipes</option>
+              <option>Discussion exploratoire</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Décrivez votre besoin</label>
+            <textarea id="message" name="message" rows="6" placeholder="Quelques lignes suffisent. Nous reviendrons vers vous pour creuser." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Envoyer ma demande
+            <span class="arrow">→</span>
+          </button>
+
+          <p style="font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.8rem; max-width: none;">
+            En soumettant ce formulaire, vous consentez à être recontacté par ASYT Associates au sujet de votre demande. Vos données ne sont ni revendues, ni partagées.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RASSURANCE -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <div class="band reveal">
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="eyebrow" style="color: var(--ink-soft);">Confidentialité</span>
+          <h2 style="margin-top: 0.6rem;">Nous appliquons à <span class="italic">notre relation</span><br>les mêmes principes qu'à <span class="highlight">notre travail.</span></h2>
+          <p class="lead">Toute information échangée — y compris dans un premier appel — est traitée comme strictement confidentielle. Sur demande, nous signons un accord de confidentialité avant tout échange détaillé.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="mark"></span>ASYT <span class="associates">Associates</span>
+        </div>
+        <p>L'intelligence artificielle conçue pour les environnements où la confidentialité n'est pas négociable.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:asyt.associates@outlook.com">asyt.associates@outlook.com</a></li>
+          <li><a href="https://calendly.com/asyt-associates/new-meeting" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ASYT Associates. Tous droits réservés.</span>
+      <span>Paris · Conçu pour durer.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

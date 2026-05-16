@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASYT Associates — L'IA souveraine pour vos données sensibles</title>
+<meta name="description" content="ASYT Associates conçoit des intelligences artificielles sécurisées et souveraines pour les entreprises et entrepreneurs travaillant avec des données sensibles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="asyt-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASYT Associates — L'IA souveraine pour vos données sensibles">
+<meta property="og:description" content="ASYT Associates conçoit des intelligences artificielles sécurisées et 100% locales pour les organisations qui manipulent des données sensibles.">
+<meta property="og:image" content="asyt-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="asyt-logo.png">
+</head>
+<body>
+<canvas id="data-canvas" aria-hidden="true"></canvas>
+<!-- Preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="launch-scene">
+    <div class="launch-platform"></div>
+    <div class="launch-shockwave"></div>
+    <div class="launch-trail"></div>
+    <div class="launch-craft">
+      <svg viewBox="0 0 64 88" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Corps principal du vaisseau -->
+        <path d="M32 4 L48 44 L48 72 L32 80 L16 72 L16 44 Z" fill="#1F1812"/>
+        <!-- Nez chromé -->
+        <path d="M32 4 L40 28 L32 24 L24 28 Z" fill="#D3C4AC"/>
+        <!-- Hublot -->
+        <circle cx="32" cy="42" r="6" fill="#FDF7F0"/>
+        <circle cx="32" cy="42" r="3" fill="#D3C4AC"/>
+        <!-- Ailettes latérales -->
+        <path d="M16 60 L8 76 L16 72 Z" fill="#1F1812"/>
+        <path d="M48 60 L56 76 L48 72 Z" fill="#1F1812"/>
+        <!-- Détail central -->
+        <rect x="30" y="56" width="4" height="14" fill="#D3C4AC" opacity="0.5"/>
+        <!-- Tuyère -->
+        <path d="M22 72 L28 80 L36 80 L42 72 Z" fill="#4A3F33"/>
+      </svg>
+    </div>
+  </div>
+  <div class="preloader-text">
+    <div class="brand">
+      <span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#1F1812; margin-right:8px; transform:translateY(-1px);"></span>ASYT <span class="italic">Associates</span>
+    </div>
+    <div class="tagline">Initialisation…</div>
+  </div>
+  <div class="preloader-progress"></div>
+</div>
+
+
+
+<script>
+(function() {
+  var preloader = document.getElementById('preloader');
+  if (!preloader) return;
+  
+  // Détecter si c'est la première visite ou une navigation interne
+  var isFirstVisit = !sessionStorage.getItem('asyt-visited');
+  var totalDuration = isFirstVisit ? 3800 : 1800;
+  
+  // Marquer comme visité
+  sessionStorage.setItem('asyt-visited', '1');
+  
+  // Appliquer une animation accélérée si ce n'est pas la première visite
+  if (!isFirstVisit) {
+    preloader.classList.add('preloader-fast');
+  }
+  
+  function hidePreloader() {
+    preloader.classList.add('is-hidden');
+    setTimeout(function() { 
+      if (preloader.parentNode) preloader.remove(); 
+    }, 800);
+    document.body.style.overflow = '';
+  }
+  
+  document.body.style.overflow = 'hidden';
+  
+  if (document.readyState === 'complete') {
+    setTimeout(hidePreloader, totalDuration);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(hidePreloader, totalDuration);
+    });
+  }
+  // Sécurité : retirer après 6s max
+  setTimeout(hidePreloader, 6000);
+})();
+</script>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="ASYT Associates - Accueil">
+      <span class="mark"></span>ASYT <span class="associates">Associates</span>
+    </a>
+    <nav class="nav" id="primary-nav">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <div class="lang-switch">
+        <a href="index.html" class="lang active">FR</a>
+        <span class="lang-sep">/</span>
+        <a href="index-en.html" class="lang">EN</a>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.getElementById('primary-nav').classList.toggle('open');">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow rise rise-1">IA Sécurisée · Sur Mesure</span>
+          <h1 class="rise rise-2">
+            L'intelligence artificielle, <span class="italic">sans compromis</span> sur vos <span class="highlight">données.</span>
+          </h1>
+          <div class="hero-actions rise rise-4">
+            <a href="services.html" class="btn btn-primary">
+              Découvrir nos services
+              <span class="arrow">→</span>
+            </a>
+            <a href="contact.html" class="btn btn-ghost">Nous contacter</a>
+          </div>
+        </div>
+        <div class="hero-side rise rise-3">
+          <img src="asyt-logo.png" alt="ASYT Associates" class="hero-logo">
+          <div class="hero-meta">
+            <p class="lead">
+              ASYT Associates conçoit et déploie des intelligences artificielles privées pour les organisations dont les données ne peuvent quitter leur périmètre — finance, santé, juridique, défense, recherche.
+            </p>
+            <p>
+              Pas de cloud public. Pas de données qui transitent. Une IA pensée pour les environnements où la confidentialité n'est pas une option.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <div class="stats reveal">
+        <div class="stat">
+          <div class="num">100<span class="small">%</span></div>
+          <h4>Données souveraines</h4>
+          <p>Hébergement exclusivement sur vos serveurs. Aucun transit vers des tiers.</p>
+        </div>
+        <div class="stat">
+          <div class="num">∞</div>
+          <h4>Sur-mesure intégral</h4>
+          <p>Chaque solution est conçue pour votre métier, vos flux et vos contraintes spécifiques.</p>
+        </div>
+        <div class="stat">
+          <div class="num">0</div>
+          <h4>Verrou propriétaire</h4>
+          <p>Modèles open-source uniquement. Vous restez maître de votre stack, sans dépendance subie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nos expertises</span>
+        <h2>Une IA qui respecte le <span class="highlight italic">secret</span> de vos métiers.</h2>
+        <p class="lead">Nous accompagnons les entreprises et entrepreneurs qui manipulent des informations confidentielles, depuis l'audit initial jusqu'au déploiement et à la formation des équipes.</p>
+      </div>
+
+      <div class="services-grid reveal">
+        <article class="service-card">
+          <span class="num">01 / Conseil</span>
+          <h3>Stratégie & Cadrage IA</h3>
+          <p>Identifier les cas d'usage à plus forte valeur, évaluer la faisabilité technique et les risques liés à la donnée avant tout déploiement.</p>
+          <a href="services.html#strategie" class="more">En savoir plus</a>
+        </article>
+        <article class="service-card">
+          <span class="num">02 / Build</span>
+          <h3>IA Privée & On-Premise</h3>
+          <p>Conception et déploiement de modèles d'IA hébergés sur votre infrastructure, sans dépendance aux API publiques.</p>
+          <a href="services.html#on-premise" class="more">En savoir plus</a>
+        </article>
+        <article class="service-card">
+          <span class="num">03 / Audit</span>
+          <h3>Sécurité & Conformité</h3>
+          <p>Audit complet de vos usages IA existants : fuites de données, prompt injection, conformité RGPD, AI Act.</p>
+          <a href="services.html#audit" class="more">En savoir plus</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROCHE -->
+  <section>
+    <div class="container">
+      <div class="band reveal">
+        <div class="section-head" style="margin-bottom: 1rem;">
+          <span class="eyebrow" style="color: var(--ink-soft);">Notre approche</span>
+          <h2>La <span class="highlight">sécurité</span> <span class="italic">d'abord.</span><br>L'IA ensuite.</h2>
+        </div>
+        <p class="lead" style="max-width: 60ch;">
+          Trop de projets d'IA exposent involontairement les données les plus sensibles d'une organisation. Nous inversons la logique : nous partons de votre périmètre de confidentialité, et nous bâtissons l'IA à l'intérieur.
+        </p>
+        <div class="values-list">
+          <div class="value-item">
+            <div class="num">PRINCIPE 01</div>
+            <h3>Aucune donnée ne sort.</h3>
+            <p>Vos données restent sur vos serveurs. Les modèles viennent à elles, pas l'inverse.</p>
+          </div>
+          <div class="value-item">
+            <div class="num">PRINCIPE 02</div>
+            <h3>Transparence intégrale.</h3>
+            <p>Code source documenté, architectures auditables, choix techniques justifiés. Vous comprenez ce que vous déployez.</p>
+          </div>
+          <div class="value-item">
+            <div class="num">PRINCIPE 03</div>
+            <h3>Indépendance technologique.</h3>
+            <p>Nous privilégions les modèles open-source maîtrisés. Pas de verrou propriétaire, pas de dépendance subie.</p>
+          </div>
+          <div class="value-item">
+            <div class="num">PRINCIPE 04</div>
+            <h3>Accompagnement long terme.</h3>
+            <p>Au-delà du livrable, nous formons vos équipes pour qu'elles deviennent autonomes dans la gouvernance de l'IA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-block reveal">
+        <div>
+          <span class="eyebrow">Discutons de votre projet</span>
+          <h2 style="margin-top: 1rem;">Une heure pour <span class="italic">comprendre.</span> <span class="italic">Sans engagement.</span></h2>
+          <p style="margin-top: 1.2rem; max-width: 50ch;">Échangeons sur vos enjeux. Nous vous dirons honnêtement si l'IA est pertinente pour votre cas — et comment la déployer sans exposer vos données.</p>
+        </div>
+        <a href="https://calendly.com/asyt-associates/new-meeting" target="_blank" rel="noopener" class="btn btn-primary">
+          Prendre rendez-vous
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="mark"></span>ASYT <span class="associates">Associates</span>
+        </div>
+        <p>L'intelligence artificielle conçue pour les environnements où la confidentialité n'est pas négociable.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:asyt.associates@outlook.com">asyt.associates@outlook.com</a></li>
+          <li><a href="https://calendly.com/asyt-associates/new-meeting" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ASYT Associates. Tous droits réservés.</span>
+      <span>Paris · Conçu pour durer.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
