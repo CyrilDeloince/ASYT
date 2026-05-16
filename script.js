@@ -10,6 +10,8 @@
     let width, height;
     let particles = [];
     let connections = [];
+    let mouseX = -9999;
+    let mouseY = -9999;
 
     function resize() {
       const dpr = window.devicePixelRatio || 1;
@@ -39,12 +41,29 @@
     function animate() {
       ctx.clearRect(0, 0, width, height);
 
-      // Mise à jour positions
+      // Mise à jour positions + répulsion souris
+      const repelRadius = 120;
+      const repelStrength = 0.6;
+      const maxSpeed = 5;
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < repelRadius && dist > 0) {
+          const force = (repelRadius - dist) / repelRadius * repelStrength;
+          p.vx += (dx / dist) * force;
+          p.vy += (dy / dist) * force;
+          const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (speed > maxSpeed) {
+            p.vx = (p.vx / speed) * maxSpeed;
+            p.vy = (p.vy / speed) * maxSpeed;
+          }
+        }
       });
 
       // Connexions
@@ -76,6 +95,15 @@
 
       requestAnimationFrame(animate);
     }
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouseX = -9999;
+      mouseY = -9999;
+    });
 
     resize();
     createParticles();
