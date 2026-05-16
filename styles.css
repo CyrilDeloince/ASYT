@@ -837,6 +837,15 @@ section {
   }
   .nav .lang-switch .lang { font-family: var(--mono); font-size: 0.9rem; }
 
+  /* Header dot mobile */
+  .logo .mark {
+    width: 7px;
+    height: 7px;
+  }
+  .logo .mark::after {
+    display: none;
+  }
+
   /* Hero mobile */
   .hero-side {
     order: -1;
@@ -848,6 +857,9 @@ section {
     width: 120px;
     margin: 0 auto;
     align-self: center;
+    mix-blend-mode: multiply;
+    filter: none;
+    animation: none;
   }
   .hero-meta {
     display: none;
