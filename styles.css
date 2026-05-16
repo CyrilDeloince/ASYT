@@ -836,6 +836,29 @@ section {
     font-size: 0.9rem;
   }
   .nav .lang-switch .lang { font-family: var(--mono); font-size: 0.9rem; }
+
+  /* Hero mobile */
+  .hero-side {
+    order: -1;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+  }
+  .hero-logo {
+    width: 120px;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .hero-meta {
+    display: none;
+  }
+  .hero-actions {
+    flex-direction: column;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ---------- Page-spécifique : hero variants ---------- */
