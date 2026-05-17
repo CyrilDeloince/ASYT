@@ -395,6 +395,105 @@ p.lead {
   margin-top: 2.2rem;
 }
 
+/* ---------- Interface produit — effet géométrique ---------- */
+.product-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+}
+.product-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 55%,
+      var(--cream) 0%, transparent 70%),
+    linear-gradient(90deg,
+      rgba(211, 196, 172, 0.5) 0%,
+      rgba(229, 219, 200, 0.3) 12%,
+      transparent 30%,
+      transparent 70%,
+      rgba(229, 219, 200, 0.3) 88%,
+      rgba(211, 196, 172, 0.5) 100%),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 79px,
+      rgba(31, 24, 18, 0.035) 79px, rgba(31, 24, 18, 0.035) 80px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 39px,
+      rgba(31, 24, 18, 0.025) 39px, rgba(31, 24, 18, 0.025) 40px);
+}
+.product-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: -40% -30%;
+  background: repeating-linear-gradient(90deg,
+    transparent 0px, transparent 56px,
+    rgba(211, 196, 172, 0.18) 56px, rgba(211, 196, 172, 0.18) 58px);
+  transform: perspective(900px) rotateX(22deg);
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+.product-showcase {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: center;
+}
+.product-heading {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  max-width: 28ch;
+  line-height: 1.25;
+}
+.product-stage {
+  width: 100%;
+  max-width: 880px;
+}
+.product-img-frame {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(31, 24, 18, 0.04),
+    0 8px 24px rgba(31, 24, 18, 0.08),
+    0 24px 64px rgba(31, 24, 18, 0.12);
+}
+.product-img-frame img { width: 100%; height: auto; display: block; }
+.product-tagline {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+}
+@media (max-width: 760px) {
+  .product-backdrop::after { display: none; }
+  .product-img-frame { border-radius: 6px; }
+  .product-showcase { gap: 1rem; }
+}
+
+/* ---------- Interface produit — figure simple (services.html) ---------- */
+.interface-figure {
+  margin-top: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(31, 24, 18, 0.08);
+}
+.interface-figure img { width: 100%; height: auto; display: block; }
+.interface-figure figcaption {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+@media (max-width: 760px) {
+  .interface-figure { border-radius: 6px; margin-top: 1.5rem; }
+}
+
 /* ---------- Sections ---------- */
 section {
   padding: clamp(3.5rem, 7vw, 6.5rem) 0;
