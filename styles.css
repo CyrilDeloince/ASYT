@@ -684,8 +684,23 @@ section {
   font-family: var(--sans);
 }
 .cta-block .eyebrow { color: var(--beige); }
-.cta-block .btn-primary { background: var(--cream); color: var(--ink); }
-.cta-block .btn-primary:hover { background: var(--beige); }
+.cta-block .btn-primary {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 1.1rem 2.2rem;
+  font-size: 1rem;
+}
+.cta-block .btn-primary:hover {
+  background: var(--beige);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(253, 247, 240, 0.15);
+}
+.contact-form .btn-primary {
+  padding: 1.1rem 2.2rem;
+  font-size: 1rem;
+}
+.hero-actions .btn-primary { font-size: 1rem; }
+.service-card .more { font-weight: 500; }
 .cta-block::after {
   content: '';
   position: absolute;
@@ -870,6 +885,15 @@ section {
   .hero-actions .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Page hero H1 mobile */
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    line-height: 1.2;
+    max-width: none;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 }
 
@@ -1236,6 +1260,73 @@ section {
 /* =========================================================
    FIN PRELOADER
    ========================================================= */
+
+/* ---------- Accordéon commun (services + FAQ) ---------- */
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem 0;
+  text-align: left;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.accordion-trigger:hover { color: var(--ink); }
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.accordion-icon {
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(-135deg);
+}
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-slow);
+}
+.accordion-panel.is-open { grid-template-rows: 1fr; }
+.accordion-inner { overflow: hidden; min-height: 0; }
+.accordion-inner ul { padding: 0.5rem 0 1.2rem; }
+.accordion-inner p {
+  padding-bottom: 1.2rem;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.65;
+}
+
+/* FAQ — trigger plus lisible */
+.accordion-trigger--faq {
+  padding: 1.2rem 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+}
+.faq-list .accordion-item:last-child { border-bottom: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  .accordion-trigger--faq { font-size: 0.95rem; gap: 0.75rem; }
+}
 
 /* ---------- Réduction des animations ---------- */
 @media (prefers-reduced-motion: reduce) {

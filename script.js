@@ -199,6 +199,22 @@
     }, { passive: true });
   }
 
+  /* ---------- Accordéon ---------- */
+  function initAccordions() {
+    var triggers = document.querySelectorAll('.accordion-trigger');
+    if (!triggers.length) return;
+
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var expanded = trigger.getAttribute('aria-expanded') === 'true';
+        var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        trigger.setAttribute('aria-expanded', String(!expanded));
+        panel.classList.toggle('is-open', !expanded);
+      });
+    });
+  }
+
   /* ---------- Initialisation au chargement ---------- */
   function init() {
     initParticles();
@@ -206,6 +222,7 @@
     initHeader();
     initCounters();
     initParallax();
+    initAccordions();
   }
 
   if (document.readyState === 'loading') {
