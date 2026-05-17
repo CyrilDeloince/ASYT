@@ -61,7 +61,7 @@
   
   // Détecter si c'est la première visite ou une navigation interne
   var isFirstVisit = !sessionStorage.getItem('asyt-visited');
-  var totalDuration = isFirstVisit ? 3800 : 1800;
+  var totalDuration = isFirstVisit ? 3800 : 1100;
   
   // Marquer comme visité
   sessionStorage.setItem('asyt-visited', '1');
@@ -155,7 +155,7 @@
     <div class="product-backdrop" aria-hidden="true"></div>
     <div class="container">
       <div class="product-showcase reveal">
-        <span class="eyebrow">— Notre interface</span>
+        <span class="eyebrow">Notre interface</span>
         <h2 class="product-heading">Votre assistant privé,
           <span class="italic">conçu pour vos données.</span></h2>
         <div class="product-stage">

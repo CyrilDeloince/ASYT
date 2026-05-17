@@ -989,12 +989,27 @@ section {
 
   /* Page hero H1 mobile */
   .page-hero h1 {
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
-    line-height: 1.2;
+    font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+    line-height: 1.4;
     max-width: none;
     hyphens: auto;
     overflow-wrap: break-word;
   }
+
+  /* Typographie mobile */
+  h2 { font-size: clamp(1.3rem, 4.5vw, 2rem); line-height: 1.4; }
+
+  /* Hero H1 mobile */
+  .hero h1 { font-size: clamp(1.7rem, 4.5vw, 3.8rem); line-height: 1.4; overflow-wrap: break-word; hyphens: auto; }
+
+  /* CTA mobile */
+  .cta-block { padding: 2rem; border-radius: 16px; }
+
+  /* Formulaire mobile */
+  .contact-form .btn-primary { width: 100%; justify-content: center; }
+
+  /* Accordéon services mobile */
+  .accordion-trigger { padding: 1rem 0; }
 }
 
 /* ---------- Page-spécifique : hero variants ---------- */
@@ -1004,6 +1019,11 @@ section {
 .page-hero .eyebrow { margin-bottom: 1.2rem; }
 .page-hero h1 { max-width: 18ch; margin-bottom: 1.5rem; }
 .page-hero p.lead { max-width: 56ch; }
+
+@media (max-width: 760px) {
+  .page-hero h1 { max-width: 100%; }
+  .highlight { padding-left: 0.2em; padding-right: 0.2em; }
+}
 
 /* ---------- Service détaillé ---------- */
 .service-detailed {
@@ -1336,16 +1356,16 @@ section {
   100% { transform: scaleX(1); }
 }
 
-/* Version accélérée pour les navigations entre pages (×2.1 plus rapide) */
-.preloader-fast .launch-craft { animation-duration: 1.5s; animation-delay: 0.2s; }
-.preloader-fast .launch-trail { animation-duration: 1.5s; animation-delay: 0.2s; }
-.preloader-fast .launch-platform { animation-delay: 0s, 0.5s; animation-duration: 400ms, 0.2s; }
-.preloader-fast .launch-shockwave { animation-delay: 0.6s; animation-duration: 0.7s; }
-.preloader-fast .preloader-text { animation-delay: 0.1s; animation-duration: 400ms; }
-.preloader-fast .preloader-text .tagline { animation-delay: 0.4s; animation-duration: 400ms; }
-.preloader-fast .preloader-progress::after { animation-duration: 1.7s; }
+/* Version accélérée pour les navigations entre pages */
+.preloader-fast .launch-craft { animation-duration: 0.9s; animation-delay: 0.1s; }
+.preloader-fast .launch-trail { animation-duration: 0.9s; animation-delay: 0.1s; }
+.preloader-fast .launch-platform { animation-delay: 0s, 0.3s; animation-duration: 250ms, 0.15s; }
+.preloader-fast .launch-shockwave { animation-delay: 0.3s; animation-duration: 0.5s; }
+.preloader-fast .preloader-text { animation-delay: 0.05s; animation-duration: 250ms; }
+.preloader-fast .preloader-text .tagline { animation-delay: 0.2s; animation-duration: 250ms; }
+.preloader-fast .preloader-progress::after { animation-duration: 1s; }
 .preloader-fast::before,
-.preloader-fast::after { animation-duration: 400ms, 6s; }
+.preloader-fast::after { animation-duration: 250ms, 6s; }
 
 /* Désactivation pour les utilisateurs sensibles */
 @media (prefers-reduced-motion: reduce) {
